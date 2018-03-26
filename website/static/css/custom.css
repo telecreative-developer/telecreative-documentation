@@ -1,0 +1,54 @@
+/* your custom css */
+
+.fixedHeaderContainer {
+  background: #fff;
+  color: #444;
+}
+.navigationSlider .slidingNav ul li a {
+  color: #444;
+}
+header h2 {
+  color: #444;
+  font-weight: 800 !important;
+}
+.homeContainer {
+  background: url("https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb") no-repeat center;
+  background-size: 100%;
+}
+.homeSplashFade {
+  width: 100%;
+  background-color: rgba(34, 34, 34, 0.5);
+}
+.inner h2 {
+  color: #fff;
+
+}
+.buttonWrapper a {
+  border: 1px solid #ffffff;
+  color: #fff;
+}
+a {
+  color: #3160fc;
+}
+footer.nav-footer {
+  color: #fff;
+  background: #ff445d;
+}
+footer.nav-footer p {
+  font-size: 12px;  
+}
+@media only screen and (min-device-width: 360px) and (max-device-width: 736px) {
+}
+
+@media only screen and (min-width: 1024px) {
+}
+
+@media only screen and (max-width: 1023px) {
+}
+
+@media only screen and (min-width: 1400px) {
+  
+}
+
+@media only screen and (min-width: 1500px) {
+}

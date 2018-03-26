@@ -1,0 +1,10 @@
+{
+  "docs": {
+    "Telecreative Guides": ["opening"],
+    "React": ["doc2"],
+    "Redux with React": ["reduxProject-01"]
+  },
+  "docs-other": {
+    "First Category": ["doc4", "doc5"]
+  }
+}
