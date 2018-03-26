@@ -1,0 +1,337 @@
+<html lang="en"><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Redux List Produk · Telecreative Guides</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta property="og:title" content="Redux List Produk · Telecreative Guides"/><meta property="og:type" content="website"/><meta property="og:url" content="https://telecreative.github.io/test-site/index.html"/><meta property="og:description" content="![alt text](https://res.cloudinary.com/telecreativenow/image/upload/v1520184960/Screen_Shot_2018-03-05_at_12.35.32_AM.png &quot;Redux List Produk&quot;)"/><link rel="shortcut icon" href="/test-site/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://telecreative.github.io/blog/atom.xml" title="Telecreative Guides Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://telecreative.github.io/blog/feed.xml" title="Telecreative Guides Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/test-site/css/main.css"/></head><body class="sideNavVisible"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/test-site/"><img class="logo" src="/test-site/img/superhero.svg"/><h2 class="headerTitle">Telecreative Guides</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li><a href="/test-site/docs/opening.html" target="_self">Docs</a></li><li><a href="/test-site/docs/doc4.html" target="_self">API</a></li><li><a href="/test-site/en/help.html" target="_self">Help</a></li><li><a href="/test-site/blog" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Redux with React</span></h2></div><div class="navGroups"><div class="navGroup navGroupActive"><h3>Telecreative Guides</h3><ul><li class="navListItem"><a class="navItem" href="/test-site/docs/opening.html">Opening</a></li></ul></div><div class="navGroup navGroupActive"><h3>React</h3><ul><li class="navListItem"><a class="navItem" href="/test-site/docs/doc2.html">Belum Ada Konten</a></li></ul></div><div class="navGroup navGroupActive"><h3>Redux with React</h3><ul><li class="navListItem navListItemActive"><a class="navItem navItemActive" href="/test-site/docs/reduxProject-01.html">Redux List Produk</a></li></ul></div></div></section></div><script>
+          var toggler = document.getElementById('navToggler');
+          var nav = document.getElementById('docsNav');
+          toggler.onclick = function() {
+            nav.classList.toggle('docsSliderActive');
+          };
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1>Redux List Produk</h1></header><article><div><span><p><img src="https://res.cloudinary.com/telecreativenow/image/upload/v1520184960/Screen_Shot_2018-03-05_at_12.35.32_AM.png" alt="alt text" title="Redux List Produk"></p>
+<h2><a class="anchor" aria-hidden="true" name="about-project"></a><a href="#about-project" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>About Project</h2>
+<p>Project ini memberikan kita contoh tentang bagaimana mendapatkan data produk untuk ditampilkan dengan list di UI React dengan menggunakan Redux, selain itu, kita juga akan mengubah komponen yang di klik untuk di view menggunakan Redux juga. Tahapnya memang agak sedikit merepotkan, dan harus melalui prosedur yang strict dan tidak boleh terbalik-balik.</p>
+<blockquote>
+<p><strong>Attention</strong></p>
+<p>Harap mengikuti semua prosedur/tahap secara berurutan dan dibaca dengan seksama, agar tidak menemukan error kedepannya.</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" name="install-redux"></a><a href="#install-redux" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Install Redux</h2>
+<p>Tahapan menginstalasi Redux bisa dilihat <a href="http://google.com/">disini</a>.</p>
+<h2><a class="anchor" aria-hidden="true" name="main-folder"></a><a href="#main-folder" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Main Folder</h2>
+<p>Pada project Redux pada umumnya kita memiliki 3 folder utama yang sangat berguna pada setiap step yang akan kita bangun menggunakan Redux. Berikut folder yang harus ada pada Redux.</p>
+<blockquote>
+<p><strong>Attention</strong></p>
+<p>Jika belum ada, harap dibuat seperti dibawah dengan menggunakan <code>create-react-app</code>.</p>
+</blockquote>
+<pre><code class="hljs">root-of-repo
+├── node_modules
+├── public
+└── src
+│   └── actions
+│       └── index<span class="hljs-selector-class">.js</span>
+│   └── reducers
+│       └── index<span class="hljs-selector-class">.js</span>
+│       └── reducer_active_product<span class="hljs-selector-class">.js</span>
+│       └── reducer_products<span class="hljs-selector-class">.js</span>
+│       └── reducer_recommended<span class="hljs-selector-class">.js</span>
+│   └── components
+│       └── App<span class="hljs-selector-class">.js</span>
+│       └── product_detail<span class="hljs-selector-class">.js</span>
+│       └── products_list<span class="hljs-selector-class">.js</span>
+│       └── product_recommended<span class="hljs-selector-class">.js</span>
+│   └── index<span class="hljs-selector-class">.js</span>
+├── package<span class="hljs-selector-class">.json</span>
+├── package-lock<span class="hljs-selector-class">.json</span>
+</code></pre>
+<p>Sekarang kita fokus dengan folder <code>src</code>, karena kita akan menyibukkan diri disana untuk kedepannya. Didalam folder ini terdapat 3 folder utama yang kita bahas sebelumnya. Yaitu folder;</p>
+<ul>
+<li><strong>actions</strong></li>
+<li><strong>reducers</strong></li>
+<li><strong>components</strong></li>
+</ul>
+<p>Selain folder, ada satu file induk yang menjadi root pada aplikasi yang akan di running di browser, yaitu <code>index.js</code>.</p>
+<p>Mari kita perdalam sedikit mengenai 3 folder utama ini;</p>
+<ul>
+<li><p><strong>actions</strong>
+ini berfungsi sebagai folder yang menyimpan semua perintah fungsi-fungsi untuk mengubah data yang ada di redux. Perintah di dalam actions sama halnya seperti CRUD di programming backend. Jadi disini kita bisa bilang, bahwa redux adalah fungsi backend yang berada di dalam frontend.</p></li>
+<li><p><strong>reducers</strong>
+berarti dalam bahasa Indonesia adalah peredam. Peredam maksudnya disini adalah, suatu object yang menyimpan semua data dan proses data yang akan dikirimkan ke frontend/UI. Selain itu ada file <code>index.js</code> yang berguna untuk menggabungkan semua object reducers kedalam satu root yang nanti akan dikonsumsi oleh UI.</p></li>
+<li><p><strong>components</strong>
+yang sudah kita ketahui, yaitu sebuah folder yang menyimpan semua UI yang bisa kita gunakan secara modular di ReactJS.</p></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" name="build-the-code"></a><a href="#build-the-code" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Build The Code</h2>
+<p>Sekarang kita mulai tahapan-tahapan untuk menampilkan data dengan redux di UI komponen.</p>
+<p>Pertama, kita fokus dengan komponen utama, yaitu list produk. Seperti biasa, kita membuat UI nya menggunakan framework UI yang kita suka, kalau disini saya membuat dengan <a href="https://react.semantic-ui.com/collections/">Semantic UI</a>. Kamu bisa melihat cara instalasinya langsung di dokumentasi Semantic Framework.</p>
+<h3><a class="anchor" aria-hidden="true" name="1-setup-file-react"></a><a href="#1-setup-file-react" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>1. Setup File React</strong></h3>
+<p>Import React seperti biasa, dan buat function class untuk menyimpan komponen dan export agar bisa digunakan/ditransfer ke komponen lain.</p>
+<blockquote>
+<p>File: <code>src/components/products_list.js</code></p>
+</blockquote>
+<pre><code class="hljs css javascript">+ <span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
+
++ <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ProductsList</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
++    render() {
++        <span class="hljs-keyword">return</span> (
++            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
++              Isi komponen list disini
++            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
++        )
++    }
++ }
+
++ <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> ProductsList
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" name="2-import-ui-frameworksemantic"></a><a href="#2-import-ui-frameworksemantic" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>2. Import UI Framework(Semantic)</strong></h3>
+<p>Ini optional, tergantung dari UI apa yang kamu pakai. Selain di import, tambah juga komponen nya didalam <code>&lt;div&gt;&lt;/div&gt;</code> yang kosong seperti diatas.</p>
+<blockquote>
+<p>File: <code>src/components/products_list.js</code></p>
+</blockquote>
+<pre><code class="hljs css javascript"><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
++ <span class="hljs-keyword">import</span> { List } <span class="hljs-keyword">from</span> <span class="hljs-string">'semantic-ui-react'</span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ProductsList</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+    render() {
+        <span class="hljs-keyword">return</span> (
+            &lt;div&gt;
++          &lt;List divided relaxed&gt;
++                       &lt;List.Item key={index}&gt;
++                  &lt;List.Icon name='github' size='large' verticalAlign='middle' /&gt;
++                  &lt;List.Content&gt;
++                    &lt;List.Header 
++                      as='a' 
++                    &gt;
++                      Judul/Nama Produk
++                    &lt;/List.Header&gt;
++                    &lt;List.Description as='a'&gt;Deskripsi Tambahan&lt;/List.Description&gt;
++                  &lt;/List.Content&gt;
++                &lt;/List.Item&gt;
++                   &lt;/List&gt;
+            &lt;/div&gt;
+        )
+    }
+}
+
+export default ProductsList
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" name="3-build-a-reducer"></a><a href="#3-build-a-reducer" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>3. Build a Reducer</strong></h3>
+<p>Sekarang kita beralih ke folder <code>reducers</code>. Didalam folder ini kamu edit file yang bernama <code>reducer_products.js</code>.</p>
+<p>Didalam file ini kamu akan memasukkan semua object data yang dibutuhkan untuk ditampilkan di UI komponen.</p>
+<blockquote>
+<p>File: <code>src/reducers/reducer_products.js</code></p>
+</blockquote>
+<pre><code class="hljs css javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> [
+        { 
+            <span class="hljs-attr">title</span>: <span class="hljs-string">"The Legend of Mana"</span>, 
+            <span class="hljs-attr">author</span>: <span class="hljs-string">"Phillip Sayce"</span>,
+            <span class="hljs-attr">picture</span>: <span class="hljs-string">"https://d26bwjyd9l0e3m.cloudfront.net/wp-content/uploads/2014/06/Legend-of-Mana-Featured.jpg"</span>,
+            <span class="hljs-attr">describe</span>: <span class="hljs-string">"I’ve had suicide ideation problems throughout my life. Especially as a teen. Simply wanting to die and fantasizing how. Of course teens are morose and thinking about death and dying is nothing unusual, but for me it was constant. Months on end in these wretched moods. Wrote literally two novels and a novella about suicide. Multiple short stories. Would lay in bed thinking about it, how family and friends would react. Tried my hardest to cry but couldn’t because I don’t cry easily, which would in turn make me more upset. Self-harmed. Ran out of the house after a fight with my brother, sat by the river in the forest behind my house while this impulse to smash my head in with a rock kept going on repeat in my head. Thought about how Elliott Smith stabbed himself to death as I looked at knives in the kitchen, wondering if I could do that too."</span>
+        },
+        { 
+            <span class="hljs-attr">title</span>: <span class="hljs-string">"Monster Hunter World"</span>, 
+            <span class="hljs-attr">author</span>: <span class="hljs-string">"Ryan Kobayashi"</span>,
+            <span class="hljs-attr">picture</span>: <span class="hljs-string">"http://images.pushsquare.com/news/2018/02/monster_hunter_world_official_guidebook_is_over_1000_pages_long/large.jpg"</span>,
+            <span class="hljs-attr">describe</span>: <span class="hljs-string">"Music definitely helped me, uh, not do that. And not songs like “1–800–273–8255”. I don’t know if it enabled me in some way too, helped me develop some of my less admirable traits and thought patterns, but it definitely made me feel less isolated. Music may have given voice to my sadness and rage only to enable me to stew in them, but it also gave me a channel through which to process those feelings. Listening to music and feeling the strong, empathetic responses I would have to it was better than actively wanting to die."</span>
+        },
+        { 
+            <span class="hljs-attr">title</span>: <span class="hljs-string">"Pro Soccer Evolution"</span>, 
+            <span class="hljs-attr">author</span>: <span class="hljs-string">"Konami Corp"</span>,
+            <span class="hljs-attr">picture</span>: <span class="hljs-string">"http://www.dlcompare.com:8042/upload/cache/game_tetiere/upload/gameimage/file/35720.jpeg"</span>,
+            <span class="hljs-attr">describe</span>: <span class="hljs-string">"Starting with the graphics, Pro Evolution Soccer 2018 offers a brand new interface, the menus have been completely redesigned, and statistics are in the game so you can keep track of your players' mistakes. But that's not all, the faces and facial and body animations of the players have been greatly improved, thanks to the Real Capture system, you can even see the emotions of players on their faces. Lighting effects have also been refreshed, as well as the animations of the crowd, to allow you a total immersion. Goalkeepers will be more realistic than ever, with more fluid and varied movements, especially when stopping and returning balls. On the gameplay side, Pro Evolution Soccer 2018 also brings novelties. Be more than ever master of your ball thanks to many improvements, such as Strategic Dribbles, which allow you to feint the opponent's defender whith finesse. In addition, Real Touch + now lets you to use all allowed body parts for ball replays and more distance with the intelligent ball control. The ball itself behaves in a more realistic and natural way, and its physics have also been improved. Penalties and free kicks have been also improved with better viewing, thanks to new camera angles and the suppression of the directional arrow for better maneuverability."</span>
+        },
+        { 
+            <span class="hljs-attr">title</span>: <span class="hljs-string">"Far Cry"</span>, 
+            <span class="hljs-attr">author</span>: <span class="hljs-string">"Ubisoft Entertainment"</span>,
+            <span class="hljs-attr">picture</span>: <span class="hljs-string">"http://www.dlcompare.com:8042/upload/cache/game_tetiere/img/far-cry-3-img-4.jpg"</span>,
+            <span class="hljs-attr">describe</span>: <span class="hljs-string">"In this third installment Ubisoft offers us a return to the elements, bye bye to the desert and welcome back beautiful tropical islands! The program? Sun, beach, nature and really mad pirates that you will have to deal with! The adventure begins when Jason Brody is living it up on the holiday of his life with his friends on paradise island when has the unfortunate surprise encounter during his stay a certain Vaas, a disturbed and insane pirate."</span>
+        },
+        { 
+            <span class="hljs-attr">title</span>: <span class="hljs-string">"Skyrim - The Legend of Dragon"</span>, 
+            <span class="hljs-attr">author</span>: <span class="hljs-string">"Bethesda"</span>,
+            <span class="hljs-attr">picture</span>: <span class="hljs-string">"https://cdn.uploadvr.com/wp-content/uploads/2017/11/skyrim-dragonborn-wallpaper.jpg"</span>,
+            <span class="hljs-attr">describe</span>: <span class="hljs-string">"Ever since The Elder Scrolls V: Skyrim VR was announced earlier this year back at E3 2017, hungry VR gamers around the world have been impatiently awaiting its arrival. With consumers drowning in a sea of half-finished tech demos and hour-long “experiences” that offer little depth, the arrival of a massive, sprawling adventure is long overdue. Despite the fact that it’s just a VR port of a six-year old game the tantalizing proposition of traveling to the vast, enormous land of Skyrim with the immersive power of virtual reality was just too good to be true. Could a game that massive and interactive really translate over to VR well? Could the PSVR’s Move controllers provide a good enough experience to be worth recommending?"</span>
+        }
+    ]
+}
+</code></pre>
+<p>Disini ada data: <code>title</code>, <code>author</code>, <code>picture</code> dan <code>describe</code> yang sudah dibentuk menjadi object.</p>
+<h3><a class="anchor" aria-hidden="true" name="4-combine-reducer"></a><a href="#4-combine-reducer" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>4. Combine Reducer</strong></h3>
+<p>Didalam file <code>index.js</code>, kamu mengimport fungsi yang bernama <code>{ combineReducers }</code> yang kita dapatkan dari module <code>redux</code>. <code>{ combineReducers }</code> ini berguna sebagai store yang akan menggabungkan semua data object yang nanti akan bertambah banyak seiring berkembangnya aplikasi. Sehingga kamu mengambil data hanya didalam satu store yang terpercaya ini saja.</p>
+<p>Intinya, semua file/fungsi reducer yang kamu buat, pasti akan selalu kamu masukkan kedalam <code>{ combineReducers }</code> ini. Pasti!</p>
+<blockquote>
+<p><strong>Attention</strong></p>
+<p>Reducer ini adalah pengganti <code>constructor()</code> atau <code>getInitialState()</code> kalau kita memakai plain React dalam membangun aplikasi. Paham kan? :)</p>
+</blockquote>
+<p>Import data object yang di <code>reducer_products.js</code> tadi kedalam  <code>{ combineReducers }</code>.</p>
+<blockquote>
+<p>File: <code>src/reducers/index.js</code></p>
+</blockquote>
+<pre><code class="hljs css javascript"><span class="hljs-comment">/* Import from redux */</span>
+<span class="hljs-keyword">import</span> { combineReducers } <span class="hljs-keyword">from</span> <span class="hljs-string">'redux'</span>
+<span class="hljs-comment">/* Import data object */</span>
+<span class="hljs-keyword">import</span> ProductsReducer <span class="hljs-keyword">from</span> <span class="hljs-string">'./reducer_products'</span>
+
+<span class="hljs-comment">/* Combine Reducer in here */</span>
+<span class="hljs-keyword">const</span> rootReducer = combineReducers({s
+  <span class="hljs-comment">/* data object dijadikan object lagi, ini akan bertambah terus seiring berkembangnya aplikasi. */</span>
+  products: ProductsReducer
+})
+
+<span class="hljs-comment">/* Export here! */</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> rootReducer
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" name="5-consume-a-reducer"></a><a href="#5-consume-a-reducer" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>5. Consume a Reducer</strong></h3>
+<p>Sekarang, mari kita implementasi data yang ada reducer tadi ke UI komponen yang ada di React. Ini akan sangat menarik, karena kamu akan melihat magic disini yang membuat kamu bertanya-tanya kenapa bisa begitu?</p>
+<p>Buka file <code>src/components/products_list.js</code>, disini kita implementasi reducer yang telah kita buat.</p>
+<p>Import semua hal yang dibutuhkan.</p>
+<pre><code class="hljs css javascript"><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
++ <span class="hljs-keyword">import</span> { connect } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-redux'</span>
+<span class="hljs-keyword">import</span> { List } <span class="hljs-keyword">from</span> <span class="hljs-string">'semantic-ui-react'</span>
+</code></pre>
+<p>Kita bisa lihat diatas, kita sedang mengimport <code>{ connect }</code> dari modul <code>react-redux</code>. Apa fungsi <code>{ connect }</code> ini? <strong><code>{ connect }</code> adalah fungsi yang akan menggabungkan komponen React yang telah dibangun dengan data yang telah kamu buat di Reducer.</strong></p>
+<p>Sekarang kita lihat bagaimana kode dari  <code>{ connect }</code> ini.</p>
+<pre><code class="hljs css javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mapStateToProps</span>(<span class="hljs-params">state</span>) </span>{
+    <span class="hljs-keyword">return</span> {
+        <span class="hljs-attr">products</span>: state.products
+    }
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> connect(mapStateToProps)(ProductsList)
+</code></pre>
+<p>Bisa kita lihat disana ada fungsi yang bernama <code>mapStateToProps</code>. Fungsi ini bisa kamu berikan nama apa saja sebenarnya, tapi, karena standar dari programmer ahli, disini saya memberikan nama <code>mapStateToProps</code>, agar next programmer yang familiar dengan redux bisa mengerti kode yang telah kita bangun.</p>
+<p><code>mapStateToProps</code> seperti namanya adalah fungsi yang mengembalikan data yang telah kamu buat tadi di  <code>src/reducers/reducer_products.js</code>. <strong>Yaitu dengan membuat object <code>products: state.products</code> dan mengembalikannya dalam bentuk <code>props</code>.</strong> Yang nanti bisa kamu panggil seperti ini <code>this.props.products</code>.</p>
+<p>Dan <code>connect</code>, kita gunakan di dalam <code>export default</code>. Disinilah   <code>{ connect }</code> yang berasal dari modul <code>react-redux</code> ini bekerja.   <code>{ connect }</code> bertugas menggabungkan <code>mapStateToProps</code> dan komponen <code>ProductsList</code> agar bisa menampilkan UI sesuai dengan data yang ada di <code>reducer</code>.</p>
+<p><strong>Terakhir</strong>, kamu harus membuat UI lebih menarik ketika menampilkan data dari <code>reducer</code>. Disini saya menggunakan <code>List</code> yang saya dapatkan dari <a href="https://react.semantic-ui.com/collections/">Semantic UI</a>.</p>
+<pre><code class="hljs css javascript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ProductsList</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+     <span class="hljs-comment">/* Fungsi rendeList() ini adalah membuat komponen render didalam komponen lagi. Ini berguna agar kode kamu lebih termanajemen dengan baik, sehingga kamu tau harus mengubah dimana ketika kamu ingin mengubah UI nya. */</span>
++    renderList() {
+          <span class="hljs-comment">/* products didapat dari object didalam mapStateToProps() yang kita buat tadi */</span>
++        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.props.products.map(<span class="hljs-function">(<span class="hljs-params">product, index</span>) =&gt;</span> {
++            <span class="hljs-keyword">return</span> (
++                           &lt;List.Item key={index}&gt;
++                               &lt;List.Icon name='github' size='large' verticalAlign='middle' /&gt;
++                               &lt;List.Content&gt;
++                                   &lt;List.Header 
++                                       as='a'
++                                   &gt;
++                                       {product.title}
++                                   &lt;/List.Header&gt;
++                                   &lt;List.Description as='a'&gt;{product.author}&lt;/List.Description&gt;
++                               &lt;/List.Content&gt;
++                           &lt;/List.Item&gt;
++            )
++        })
++    }
+    render() {
+        return (
+            &lt;div&gt;
+              &lt;List divided relaxed&gt;
+                &lt;!-- Lalu panggil fungsi renderList() disini. Lalu data akan keluar dari sini. --&gt;
++                               {this.renderList()}
+                            &lt;/List&gt;
+            &lt;/div&gt;
+        )
+    }
+}
+</code></pre>
+<p>Oke, mari kita tampilkan semua kode yang telah kita bangun!</p>
+<pre><code class="hljs css javascript"><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
+<span class="hljs-keyword">import</span> { connect } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-redux'</span>
+<span class="hljs-keyword">import</span> { List } <span class="hljs-keyword">from</span> <span class="hljs-string">'semantic-ui-react'</span>
+<span class="hljs-keyword">import</span> { selectBook } <span class="hljs-keyword">from</span> <span class="hljs-string">'../actions'</span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ProductsList</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+    renderList() {
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.props.products.map(<span class="hljs-function">(<span class="hljs-params">product, index</span>) =&gt;</span> {
+            <span class="hljs-keyword">return</span> (
+                            &lt;List.Item key={index}&gt;
+                                &lt;List.Icon name='github' size='large' verticalAlign='middle' /&gt;
+                                &lt;List.Content&gt;
+                                    &lt;List.Header 
+                                        as='a' 
+                                    &gt;
+                                        {product.title}
+                                    &lt;/List.Header&gt;
+                                    &lt;List.Description as='a'&gt;{product.author}&lt;/List.Description&gt;
+                                &lt;/List.Content&gt;
+                            &lt;/List.Item&gt;
+            )
+        })
+    }
+    render() {
+        return (
+            &lt;div&gt;
+                            &lt;List divided relaxed&gt;
+                                {this.renderList()}
+                            &lt;/List&gt;
+            &lt;/div&gt;
+        )
+    }
+}
+
+function mapStateToProps(state) {
+    return {
+        products: state.products
+    }
+}
+
+export default connect(mapStateToProps)(ProductsList)
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" name="6-send-to-big-main-rootappjs-indexjs"></a><a href="#6-send-to-big-main-rootappjs-indexjs" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>6. Send to Big Main Root(app.js &amp; index.js)</strong></h3>
+<p>Buat seperti ini.</p>
+<blockquote>
+<p>File: <code>src/components/app.js</code></p>
+</blockquote>
+<pre><code class="hljs css javascript"><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
+<span class="hljs-keyword">import</span> { Grid, Image } <span class="hljs-keyword">from</span> <span class="hljs-string">'semantic-ui-react'</span>
+<span class="hljs-keyword">import</span> ProductsList <span class="hljs-keyword">from</span> <span class="hljs-string">'./products_list'</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">App</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+  render() {
+    <span class="hljs-keyword">return</span> (
+      &lt;div style={{ padding: 50 }}&gt;
+        &lt;Grid&gt;
+          &lt;Grid.Column width={4}&gt;
+            &lt;ProductsList /&gt;
+          &lt;/Grid.Column&gt;
+          &lt;Grid.Column width={9}&gt;
+            Kosong
+          &lt;/Grid.Column&gt;
+          &lt;Grid.Column width={3}&gt;
+            Kosong
+          &lt;/Grid.Column&gt;
+        &lt;/Grid&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+</code></pre>
+<p>Dan..</p>
+<blockquote>
+<p>File: <code>src/index.js</code></p>
+</blockquote>
+<pre><code class="hljs css javascript"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
+<span class="hljs-keyword">import</span> ReactDOM <span class="hljs-keyword">from</span> <span class="hljs-string">'react-dom'</span>
+<span class="hljs-keyword">import</span> { Provider } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-redux'</span>
+<span class="hljs-keyword">import</span> { createStore, applyMiddleware } <span class="hljs-keyword">from</span> <span class="hljs-string">'redux'</span>
+
+<span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">'./components/app'</span>
+<span class="hljs-keyword">import</span> reducers <span class="hljs-keyword">from</span> <span class="hljs-string">'./reducers'</span>
+
+<span class="hljs-keyword">const</span> createStoreWithMiddleware = applyMiddleware()(createStore)
+
+ReactDOM.render(
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Provider</span> <span class="hljs-attr">store</span>=<span class="hljs-string">{createStoreWithMiddleware(reducers)}</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">App</span> /&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">Provider</span>&gt;</span></span>
+  , <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.container'</span>));
+</code></pre>
+<p>Karena <code>app.js</code> sudah cukup familiar oleh kamu, mari kita bahas sedikit saja mengenai <code>index.js</code>, karena disini ada beberapa hal yang membuat kamu agak bingung.</p>
+<p><strong>Provider</strong>
+<code>import { Provider } from 'react-redux'</code>
+Ini adalah fungsi yang kita dapatkan dari modul <code>react-redux</code> yang akan membantu kita untuk mengkoneksikan <strong>root utama</strong> dari aplikasi React ini agar terhubung dengan Redux. Ingat <strong>root utama</strong>!</p>
+<p><strong>createStore &amp; applyMiddleware</strong>
+<code>import { createStore, applyMiddleware } from 'redux'</code>
+Adalah sebuah fungsi khusus Redux yang selalu ada di manapun kamu membangun Redux, baik menggunakan Jquery, Meteor, Angular, atau apapun itu, kamu pasti akan menemukan ini dimanapun asalkan kamu menggunakan Redux. Disini saya tidak terlalu tau fungsi nya apa, tapi kamu bisa lihat cara menggunakannya seperti contoh diatas.</p>
+<h3><a class="anchor" aria-hidden="true" name="7-run-your-app"></a><a href="#7-run-your-app" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>7. Run Your App!</strong></h3>
+<p>Sekarang run aplikasi kamu!</p>
+<pre><code class="hljs"><span class="hljs-meta">$</span><span class="bash"> npm start</span>
+</code></pre>
+<p>Dan buka <a href="http://localhost:3000/">localhost:3000</a>. Maka kamu akan melihat keajaiban!</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="doc2.html">← Belum Ada Konten</a></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/test-site/" class="nav-home"><img src="/test-site/img/superhero.svg" alt="Telecreative Guides" width="66" height="58"/></a><div><h5>About</h5><p>Semua permasalahan React dan Redux yang telah kita solve bersama tim bisa kamu temukan disini. Untuk sementara(karena library tidak terlalu banyak), kami menjabarkan semuanya berdasarkan kategori saja.</p></div><div><h5>Link Related</h5><a href="/test-site/en/reduxProject-01.html">Redux &amp; React</a><a href="https://telecreativenow.com/" target="_blank">Telecreative Website</a><a href="https://instagram.com/telecreativenow" target="_blank">Instagram</a></div><div><h5>Github</h5><a href="/test-site/blog">Blog</a><a href="https://github.com/telecreative">GitHub</a><a class="github-button" href="https://github.com/facebook/test-site" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" class="fbOpenSource"><img src="/test-site/img/superhero.svg" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2018 PT Tele Digital Kreatif.</section></footer></div></body></html>
